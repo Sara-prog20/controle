@@ -20,8 +20,6 @@ print(notes)
 
 
 
-
-[]
 ###c-Moyenne de l'eleve 1
 def moyenne(liste):
   valeurs=0
