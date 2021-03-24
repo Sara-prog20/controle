@@ -3,7 +3,7 @@ platform linux -- Python 3.9.2, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
 rootdir: /home/stidsem4/iut/2021/controle/sara.kacem/c16_03
 collected 7 items
 
-test_16_03.py F.FFFFF                                                    [100%]
+test_16_03.py F.F..FF                                                    [100%]
 
 =================================== FAILURES ===================================
 _____________________________ Test1603sute.test_10 _____________________________
@@ -12,10 +12,14 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_10>
 
     def test_10(self):
         try:
->           from .main  import Note
-E           ImportError: cannot import name 'Note' from 'c16_03.main' (/home/stidsem4/iut/2021/controle/sara.kacem/c16_03/main.py)
+            from .main  import Note
+        except:
+           assert False
+        try:
+>           Note.vider()
+E           AttributeError: type object 'Note' has no attribute 'vider'
 
-test_16_03.py:94: ImportError
+test_16_03.py:98: AttributeError
 
 During handling of the above exception, another exception occurred:
 
@@ -25,10 +29,14 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_10>
         try:
             from .main  import Note
         except:
->          assert False
-E          AssertionError: assert False
+           assert False
+        try:
+            Note.vider()
+        except:
+>           assert False
+E           AssertionError: assert False
 
-test_16_03.py:96: AssertionError
+test_16_03.py:100: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [('eleve1', 'math', 13), ('eleve1', 'physique', 15), ('eleve1', 'math', 13), ('eleve1', 'eco', 12), ('eleve1', 'eco', 13), ('eleve1', 'math', 12), ('eleve2', 'math', 13), ('eleve2', 'math', 14)]
 moyenne de eleve1 13.0
@@ -37,6 +45,23 @@ moyenne de eleve1 en math 12.666666666666666
 [('eleve1', 'math', 13), ('eleve1', 'physique', 15), ('eleve1', 'math', 13), ('eleve1', 'eco', 12), ('eleve1', 'eco', 13), ('eleve1', 'math', 12)]
 [('eleve1', 'math', 13), ('eleve1', 'math', 13), ('eleve1', 'math', 12)]
 12.666666666666666
+eleve: eleve1 matière: math note: 13
+eleve: eleve1 matière: physique note: 15
+eleve: eleve1 matière: math note: 13
+eleve: eleve1 matière: eco note: 12
+eleve: eleve1 matière: eco note: 13
+eleve: eleve1 matière: math note: 12
+eleve: eleve2 matière: math note: 13
+eleve: eleve2 matière: math note: 14
+eleve: eleve1 matière: math note: 13
+eleve: eleve1 matière: physique note: 15
+eleve: eleve1 matière: math note: 13
+eleve: eleve1 matière: eco note: 12
+eleve: eleve1 matière: eco note: 13
+eleve: eleve1 matière: math note: 12
+eleve: eleve2 matière: math note: 13
+eleve: eleve2 matière: math note: 14
+13.125
 _____________________________ Test1603sute.test_4 ______________________________
 
 self = <c16_03.test_16_03.Test1603sute testMethod=test_4>
@@ -78,50 +103,7 @@ E               AssertionError: moyenne_tuples non définie
 E               assert False
 
 test_16_03.py:21: AssertionError
-_____________________________ Test1603sute.test_5 ______________________________
-
-self = <c16_03.test_16_03.Test1603sute testMethod=test_5>
-
-    def test_5(self):
-        try:
->           from .main  import Note, onotes
-E           ImportError: cannot import name 'Note' from 'c16_03.main' (/home/stidsem4/iut/2021/controle/sara.kacem/c16_03/main.py)
-
-test_16_03.py:33: ImportError
-
-During handling of the above exception, another exception occurred:
-
-self = <c16_03.test_16_03.Test1603sute testMethod=test_5>
-
-    def test_5(self):
-        try:
-            from .main  import Note, onotes
-        except:
->           assert False
-E           AssertionError: assert False
-
-test_16_03.py:35: AssertionError
-_____________________________ Test1603sute.test_6 ______________________________
-
-self = <c16_03.test_16_03.Test1603sute testMethod=test_6>
-
-    def test_6(self):
->       from .main import Note, onotes
-E       ImportError: cannot import name 'Note' from 'c16_03.main' (/home/stidsem4/iut/2021/controle/sara.kacem/c16_03/main.py)
-
-test_16_03.py:41: ImportError
 _____________________________ Test1603sute.test_8 ______________________________
-
-self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
-
-    def test_8(self):
-        try:
->           from .main import Note
-E           ImportError: cannot import name 'Note' from 'c16_03.main' (/home/stidsem4/iut/2021/controle/sara.kacem/c16_03/main.py)
-
-test_16_03.py:67: ImportError
-
-During handling of the above exception, another exception occurred:
 
 self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
 
@@ -129,23 +111,23 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_8>
         try:
             from .main import Note
         except ImportError:
->           assert False, "import de Note impossible"
-E           AssertionError: import de Note impossible
-E           assert False
-
-test_16_03.py:69: AssertionError
-_____________________________ Test1603sute.test_9 ______________________________
-
-self = <c16_03.test_16_03.Test1603sute testMethod=test_9>
-
-    def test_9(self):
+            assert False, "import de Note impossible"
         try:
->           from .main  import Note
-E           ImportError: cannot import name 'Note' from 'c16_03.main' (/home/stidsem4/iut/2021/controle/sara.kacem/c16_03/main.py)
+            from .main  import moyenne_Notes as mnotes
+        except ImportError:
+            try:
+                from .main  import moyenne_notes as mnotes
+            except ImportError:
+                assert False, "La fonction moyenne_notes n'est pas définie"
+        note1 = Note('elv1', 'xx', 14)
+        note2 = Note('elv1', 'xx',  15)
+        note3 = Note('elv2', 'yy', 15)
+        notes = note1, note2, note3
+>       assert mnotes(notes, 'elv1', 'xx') == 14.5
+E       TypeError: moyenne_Notes() takes from 0 to 2 positional arguments but 3 were given
 
-test_16_03.py:87: ImportError
-
-During handling of the above exception, another exception occurred:
+test_16_03.py:81: TypeError
+_____________________________ Test1603sute.test_9 ______________________________
 
 self = <c16_03.test_16_03.Test1603sute testMethod=test_9>
 
@@ -153,15 +135,15 @@ self = <c16_03.test_16_03.Test1603sute testMethod=test_9>
         try:
             from .main  import Note
         except:
->          assert False
-E          AssertionError: assert False
+           assert False
+>       assert hasattr(Note, 'instances')
+E       AssertionError: assert False
+E        +  where False = hasattr(<class 'c16_03.main.Note'>, 'instances')
 
-test_16_03.py:89: AssertionError
+test_16_03.py:90: AssertionError
 =========================== short test summary info ============================
 FAILED test_16_03.py::Test1603sute::test_10 - AssertionError: assert False
 FAILED test_16_03.py::Test1603sute::test_4 - AssertionError: moyenne_tuples n...
-FAILED test_16_03.py::Test1603sute::test_5 - AssertionError: assert False
-FAILED test_16_03.py::Test1603sute::test_6 - ImportError: cannot import name ...
-FAILED test_16_03.py::Test1603sute::test_8 - AssertionError: import de Note i...
+FAILED test_16_03.py::Test1603sute::test_8 - TypeError: moyenne_Notes() takes...
 FAILED test_16_03.py::Test1603sute::test_9 - AssertionError: assert False
-========================= 6 failed, 1 passed in 0.06s ==========================
+========================= 4 failed, 3 passed in 0.08s ==========================
