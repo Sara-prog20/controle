@@ -54,3 +54,48 @@ def moyenne_tuples(notes,eleve,matiere):
   return res
 
 print(moyenne_tuples(notes,"eleve1","math"))
+
+##5-
+notes_enregistrees = []
+class Note:
+  def __init__(self, eleve, matiere, valeur):
+    self.eleve = eleve
+    self.matiere = matiere
+    self.valeur = valeur
+    self = notes_enregistrees.append(self)
+
+
+  def afficher(self):
+    print('eleve:', self.eleve, 'matière:', self.matiere, 'note:', self.valeur)
+  
+  def __str__(self):
+    return f"eleve: {self.eleve} matière: {self.matiere} note: {self.valeur}"
+
+
+onotes = []
+for a in notes:
+  onotes.append(Note(a[0],a[1],a[2]))
+
+
+#6-
+for x in range(len(onotes)) :
+  print(onotes[x])
+
+#7-
+for x in range(len(notes_enregistrees)) :
+  print(notes_enregistrees[x])
+
+
+#8-
+def moyenne_Notes(nom=None,matiere=None):
+  liste = notes_enregistrees
+  resultat = []
+  liste_eleve=[]
+  for a in liste :
+    liste_eleve= [x for x in liste if x.eleve == nom or nom == None]
+    liste_matiere= [x for x in liste_eleve if x.matiere == matiere or matiere == None]
+    resultat = [x.valeur for x in liste_matiere ]
+    moyenne = sum(resultat)/len(resultat)
+  return moyenne
+
+print(moyenne_Notes())
